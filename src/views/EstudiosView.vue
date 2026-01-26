@@ -1,5 +1,9 @@
 <template>
-  <section id="estudios"></section>
+  <section v-if="tablaEstudios" id="estudios" class="h-full flex items-center justify-center">
+    <div v-for="(datos, index) in tablaEstudios.data" :key="index">
+      {{ datos.titilo }}
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -10,7 +14,6 @@ const tablaEstudios = ref()
 
 onMounted(async () => {
   tablaEstudios.value = await obtener('estudios')
-  console.log(tablaEstudios.value.data)
 })
 </script>
 
