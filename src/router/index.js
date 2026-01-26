@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAccesoStore } from '@/stores/accesoStore';
-
-const accesoStore = useAccesoStore()
+import { useAccesoStore } from '@/stores/accesoStore'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,11 +18,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAdmin && !accesoStore.admin){
-    next("/acceso")
+  const accesoStore = useAccesoStore()
+  if (to.meta.requiresAdmin && !accesoStore.admin) {
+    next('/acceso')
   } else {
     next()
   }
-});
+})
 
 export default router
