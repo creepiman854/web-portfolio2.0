@@ -1,5 +1,7 @@
 <template>
-<router-view></router-view>
+  <section id="experiencia">
+
+  </section>
 </template>
 
 <script setup>

@@ -1,5 +1,7 @@
 <template>
-<router-view></router-view>
+  <section id="acceso">
+
+  </section>
 </template>
 
 <script setup>

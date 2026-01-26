@@ -1,5 +1,7 @@
 <template>
-<router-view></router-view>
+  <section id="proyectos">
+
+  </section>
 </template>
 
 <script setup>

@@ -1,5 +1,7 @@
 <template>
-<router-view></router-view>
+  <section id="gestion">
+
+  </section>
 </template>
 
 <script setup>
