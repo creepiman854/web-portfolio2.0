@@ -1,27 +1,50 @@
 // _neumorphic.scss
 
-@mixin outset
+$shadow-lg: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff
+$shadow-sm: 5px 5px 10px #c6c6c6, -5px -5px 10px #ffffff
+
+$inset-shadow-lg: inset 10px 10px 20px #c6c6c6, inset -10px -10px 20px #ffffff
+$inset-shadow-sm: inset 5px 5px 10px #c6c6c6, inset -5px -5px 10px #ffffff
+
+
+@mixin outset($size: lg)
   position: relative
   overflow: hidden
   border-radius: 45px
   background: #e9e9e9
-  box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff
+
+  @if $size == sm
+    box-shadow: $shadow-sm
+  @else
+    box-shadow: $shadow-lg
+
   transition: box-shadow 0.25s ease
   z-index: 0
 
-@mixin inset
+
+@mixin inset($size: lg)
   border-radius: 45px
   background: #e9e9e9
-  box-shadow: inset 10px 10px 20px #c6c6c6, inset -10px -10px 20px #ffffff
-  padding: 1rem
+
+  @if $size == sm
+    box-shadow: $inset-shadow-sm
+  @else
+    box-shadow: $inset-shadow-lg
+
   outline: none
 
-@mixin button
+
+@mixin button($size: lg)
   position: relative
   overflow: hidden
   border-radius: 45px
   background: #e9e9e9
-  box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff
+
+  @if $size == sm
+    box-shadow: $shadow-sm
+  @else
+    box-shadow: $shadow-lg
+
   transition: box-shadow 0.2s ease, transform 0.1s ease
   z-index: 0
   padding: 0.5rem 1rem
@@ -38,15 +61,17 @@
     z-index: -1
     transition: opacity 0.2s ease, background 0.2s ease
 
-  // Hover
-  &.hoverable:hover::before
+  &:hover::before
     opacity: 1
 
-  // Active
   &:active::before
     opacity: 1
     background: linear-gradient(145deg, #d2d2d2, #f9f9f9)
 
   &:active
-    box-shadow: 10px 10px 20px #c6c6c6, -10px -10px 20px #ffffff
+    @if $size == sm
+      box-shadow: $shadow-sm
+    @else
+      box-shadow: $shadow-lg
+
     transform: translateY(1px)
