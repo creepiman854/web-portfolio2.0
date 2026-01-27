@@ -1,6 +1,9 @@
 <template>
   <section id="gestion" class="h-full flex items-center justify-center">
-    <form @submit.prevent="add" class="h-[80%] w-[60%] min-w-143.75 p-20 flex flex-col gap-5 justify-between">
+    <form
+      @submit.prevent="add"
+      class="h-[80%] w-[60%] min-w-143.75 p-20 flex flex-col gap-5 justify-between"
+    >
       <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-1">
           <label for="">Titulo</label>
